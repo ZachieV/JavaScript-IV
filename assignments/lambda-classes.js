@@ -22,7 +22,7 @@ class Instructor extends Person {
     return `Today we are learning about ${subject}.`
   };
   grade() {
-    return `${student.name} recieves a perfect score on ${subject}.`
+    return `${zach.name} recieves a perfect score on ${subject}.`
 
   };
 }
@@ -35,13 +35,13 @@ class Student extends Instructor {
     this.favSubject = sAttrs.favSubject;
   }
   listsSubjects() {
-    return `${favSubject[0]}, ${favSubject[1]}, ${favSubject[2]}`
+    return `${this.favSubject[0]}, ${this.favSubject[1]}, ${this.favSubject[2]}`
   };
   PRAssignment() {
-    return `${student.name} has submitted a PR for ${subject}.`
+    return `${this.name} has submitted a PR for ${subject}.`
   };
   sprintChallenge() {
-    return `${student.name} has begun challenge on ${subject}.`
+    return `${this.name} has begun challenge on ${subject}.`
   };
 }
 
@@ -52,15 +52,15 @@ class ProjectManager extends Student {
     this.favInstructor = pmAttrs.favinstructor;
   }
   standUp() {
-    return `${name} announces to ${channel}, @channel standy time!`
+    return `${this.name} announces to ${channel}, @channel standy time!`
   };
   debugsCode() {
-    return `${name} debugs ${student.name}'s code on ${subject}'`
+    return `${this.name} debugs ${billy.name}'s code on ${subject}'`
   };
 }
 
-
-
+//channel and subject
+const channel = 'WebPT5'
 const subject = 'JavaScript'
 
 //Instructor
@@ -124,19 +124,24 @@ const billy = new Student({
 
 const joe = new ProjectManager({
   name: 'Joe',
-  location: 'Bedrock',
+  location: 'Mississippi',
   age: 104,
   gender: 'male',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
   catchPhrase: `For the emporer!`,
   gradclassName: 'Web1',
-  favInstructor: 'Fred'
+  favInstructor: 'Fred',
+  favSubject: [
+    'Python',
+    'JavaScript',
+    'CSS'
+  ]
 });
 
 const micah = new ProjectManager({
-  name: 'Fred',
-  location: 'Bedrock',
+  name: 'Micah',
+  location: 'Bend',
   age: 6,
   gender: 'male',
   favLanguage: 'JavaScript',
@@ -145,7 +150,11 @@ const micah = new ProjectManager({
   gradclassName: 'Web2',
   favInstructor: 'Bob'
 });
-
+console.log(micah.speak());
 console.log(fred.demo());
 console.log(fred.grade());
 console.log(zach.PRAssignment());
+console.log(zach.listsSubjects());
+console.log(joe.standUp());
+console.log(micah.debugsCode());
+console.log(joe.listsSubjects());
